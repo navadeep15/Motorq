@@ -1,0 +1,36 @@
+<%- include('../layout') %>
+
+<h2>Car Inventory</h2>
+<a href="/admin/cars/add">Add New Car</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Registration Number</th>
+            <th>Fuel Type</th>
+            <th>Rent Per Day</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% cars.forEach(car => { %>
+            <tr>
+                <td><%= car.make %></td>
+                <td><%= car.model %></td>
+                <td><%= car.year %></td>
+                <td><%= car.registrationNumber %></td>
+                <td><%= car.fuelType %></td>
+                <td><%= car.rentPerDay %></td>
+                <td>
+                    <a href="/admin/cars/edit/<%= car._id %>">Edit</a>
+                    <form action="/admin/cars/delete/<%= car._id %>" method="POST" style="display:inline;">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

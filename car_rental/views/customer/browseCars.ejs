@@ -1,0 +1,55 @@
+<%- include('../layout') %>
+
+<h2>Browse Cars</h2>
+
+<form method="GET" action="/cars">
+    <label for="fuelType">Fuel Type:</label>
+    <input type="text" name="fuelType">
+
+    <label for="make">Make:</label>
+    <input type="text" name="make">
+
+    <label for="minRent">Min Rent:</label>
+    <input type="number" name="minRent">
+
+    <label for="maxRent">Max Rent:</label>
+    <input type="number" name="maxRent">
+
+    <button type="submit">Filter</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Fuel Type</th>
+            <th>Rent Per Day</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% cars.forEach(car => { %>
+            <tr>
+                <td><%= car.make %></td>
+                <td><%= car.model %></td>
+                <td><%= car.year %></td>
+                <td><%= car.fuelType %></td>
+                <td><%= car.rentPerDay %></td>
+                <td>
+                    <form action="/cars/book" method="POST">
+                        <input type="hidden" name="carId" value="<%= car._id %>">
+                        <label for="startDate">Start Date:</label>
+                        <input type="date" name="startDate" required>
+                        <label for="endDate">End Date:</label>
+                        <input type="date" name="endDate" required>
+                        <input type="text" name="customerName" placeholder="Your Name" required>
+                        <input type="email" name="customerEmail" placeholder="Your Email" required>
+                        <button type="submit">Book</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

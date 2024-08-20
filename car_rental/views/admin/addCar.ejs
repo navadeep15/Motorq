@@ -1,0 +1,25 @@
+<%- include('../layout') %>
+
+<h2>Add New Car</h2>
+
+<form action="/admin/cars/add" method="POST">
+    <label for="make">Make:</label>
+    <input type="text" name="make" required>
+
+    <label for="model">Model:</label>
+    <input type="text" name="model" required>
+
+    <label for="year">Year:</label>
+    <input type="number" name="year" required>
+
+    <label for="registrationNumber">Registration Number:</label>
+    <input type="text" name="registrationNumber" required>
+
+    <label for="fuelType">Fuel Type:</label>
+    <input type="text" name="fuelType" required>
+
+    <label for="rentPerDay">Rent Per Day:</label>
+    <input type="number" name="rentPerDay" required>
+
+    <button type="submit">Add Car</button>
+</form>
