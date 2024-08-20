@@ -7,7 +7,7 @@ A car rental service application that allows customers to search, book, and mana
 
 ```bash
 # Clone the repository
-git clone 
+git clone https://github.com/navadeep15/Motorq.git
 
 # Navigate into the project directory
 cd car_rental
